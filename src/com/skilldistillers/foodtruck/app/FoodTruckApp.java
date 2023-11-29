@@ -48,7 +48,7 @@ public class FoodTruckApp {
 		public void displayMenu(Scanner userKeyboard) {
 			
 			int userChoice = 0;
-			
+//Story#4		
 			while(userChoice != 4) {
 				System.out.println("Hello! Please enter a number that corresponds with your desired choice");
 				System.out.println("1. List all food trucks");
@@ -59,22 +59,20 @@ public class FoodTruckApp {
 				
 			}
 			
-			switch (userChoice) {
-			
+			switch(userChoice) {
 			case 1:
 				displayFoodtrucks();
-				break;
+				continue;
 			case 2:
 				System.out.println("The average rating for all food trucks is: " + calcFleetRatingAverage());
-				break;
+				continue;
 			case 3:
 				System.out.println("The top rated food truck is: " + topRatedFoodTruck());
-				break;
+				continue;
 			case 4:
-				System.out.println("Goodbye");
+				System.out.println("Have a nice day!");
+				
 			}
-			
-		}
 		
 		public void displayFoodtrucks() {
 			for (FoodTruck truck : fleet) {
@@ -85,15 +83,24 @@ public class FoodTruckApp {
 		}
 		
 		public double calcFleetRatingAverage() {
-			double totalRatingSum = 0;
-			double numFleet = 0;
-			double average = totalRatingSum % numFleet;
+			double average = 0;
+			int totalTrucks = 0;
+			for (FoodTruck truck : fleet) {
+				if (truck != null) {
+					average += truck.getFoodRating();
+					totalTrucks++;
+				}
+			}
 			return average;
 		}
 		
 		public FoodTruck topRatedFoodTruck() {
 			FoodTruck topRatedFoodTruck = fleet[0];
-			
+			for (FoodTruck truck : fleet) {
+				if (truck.getFoodRating() > topRatedFoodTruck.getFoodRating()) {
+					topRatedFoodTruck = truck;
+				}
+			}
 			return topRatedFoodTruck;
 		}
 			
