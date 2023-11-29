@@ -21,7 +21,7 @@ public class FoodTruck {
 		return foodType;
 	}
 	
-	public int getFoodRating() {
+	public double getFoodRating() {
 		return foodRating;
 	}
 	
