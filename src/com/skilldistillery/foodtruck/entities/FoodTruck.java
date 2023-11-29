@@ -17,12 +17,24 @@ public class FoodTruck {
 		return truckName;
 	}
 	
+	public void setTruckName(String name) {
+		this.truckName = name;
+	}
+	
 	public String getFoodType() {
 		return foodType;
 	}
 	
+	public void setFoodType(String foodType) {
+		this.foodType = foodType;
+	}
+	
 	public double getFoodRating() {
 		return foodRating;
+	}
+	
+	public void setFoodRating(int foodRating) {
+		this.foodRating = foodRating;
 	}
 	
 	
